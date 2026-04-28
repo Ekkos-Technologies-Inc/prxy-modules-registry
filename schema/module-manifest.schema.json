@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Ekkos-Technologies-Inc/prxy-modules-registry/schema/module-manifest.schema.json",
+  "title": "Prxy Module Manifest",
+  "description": "Schema for entries in the prxy-modules-registry. Every JSON file under modules/ MUST validate against this schema.",
+  "type": "object",
+  "required": [
+    "name",
+    "displayName",
+    "version",
+    "description",
+    "author",
+    "license",
+    "category",
+    "supports",
+    "submittedAt",
+    "verified",
+    "dependencies",
+    "kind"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Scoped npm-style identifier. MUST start with @prxy-official/ or @community/ or your own scope.",
+      "pattern": "^@[a-z0-9][a-z0-9._-]*/[a-z0-9][a-z0-9._-]*$"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-friendly name shown in the marketplace UI.",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver version of the module being listed.",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$"
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence description of what the module does.",
+      "minLength": 10,
+      "maxLength": 280
+    },
+    "author": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "github": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier (or 'PROPRIETARY' for paid modules).",
+      "minLength": 2
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "cache",
+        "optimization",
+        "context",
+        "injection",
+        "routing",
+        "safety",
+        "side-effect",
+        "observability",
+        "ai-augment"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "maxItems": 12
+    },
+    "supports": {
+      "type": "object",
+      "required": ["cloud", "local"],
+      "additionalProperties": false,
+      "properties": {
+        "cloud": { "type": "boolean" },
+        "local": { "type": "boolean" }
+      }
+    },
+    "configSchema": {
+      "type": "string",
+      "description": "URL to a JSON schema describing the module's config (or a docs link to the schema).",
+      "format": "uri"
+    },
+    "documentation": {
+      "type": "string",
+      "description": "URL to module documentation.",
+      "format": "uri"
+    },
+    "repository": {
+      "type": "string",
+      "description": "URL to the module's source repository.",
+      "format": "uri"
+    },
+    "npm": {
+      "type": ["string", "null"],
+      "description": "Full npm package URL (e.g. https://www.npmjs.com/package/...). Null for built-in modules that ship inside the gateway.",
+      "format": "uri"
+    },
+    "submittedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether this module has passed manual code review."
+    },
+    "verifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Whether this module is featured by the prxy team."
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "downloads30d": { "type": "integer", "minimum": 0 },
+        "successRate": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "required": ["@prxy/module-sdk"],
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {
+        "@prxy/module-sdk": {
+          "type": "string",
+          "description": "Required peer dependency on @prxy/module-sdk. Use a caret range like '^1.0.0'.",
+          "pattern": "^[\\^~>=<]*[0-9]+(\\.[0-9]+){0,2}.*$"
+        }
+      }
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["free", "paid"],
+      "description": "Pricing model. Paid modules require Stripe Connect onboarding (v1+)."
+    },
+    "price": {
+      "type": "object",
+      "description": "Required when kind=paid. Monthly USD subscription only at v1.",
+      "additionalProperties": false,
+      "properties": {
+        "currency": { "type": "string", "enum": ["USD"] },
+        "monthly": { "type": "number", "minimum": 0 }
+      },
+      "required": ["currency", "monthly"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "kind": { "const": "paid" } }
+      },
+      "then": {
+        "required": ["price"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "name": {
+            "pattern": "^@community/"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "npm": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": ["npm"]
+      }
+    }
+  ]
+}

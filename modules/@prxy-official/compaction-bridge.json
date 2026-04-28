@@ -1,0 +1,26 @@
+{
+  "name": "@prxy-official/compaction-bridge",
+  "displayName": "Compaction Bridge",
+  "version": "1.0.0",
+  "description": "Survives Claude Code's auto-compaction without state loss. Detects post-compaction requests and re-injects the most relevant pieces of the most recent eviction archive into the system prompt.",
+  "author": {
+    "name": "ekkOS Technologies Inc.",
+    "github": "Ekkos-Technologies-Inc",
+    "email": "hello@ekkos.dev"
+  },
+  "license": "MIT",
+  "category": "context",
+  "tags": ["context", "claude-code", "compaction", "state-preservation"],
+  "supports": { "cloud": true, "local": true },
+  "configSchema": "https://github.com/Ekkos-Technologies-Inc/prxy-monster/blob/main/packages/modules-core/src/compaction-bridge.ts",
+  "documentation": "https://docs.prxy.monster/modules/compaction-bridge",
+  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster",
+  "npm": null,
+  "submittedAt": "2026-04-27T00:00:00Z",
+  "verified": true,
+  "verifiedAt": "2026-04-27T00:00:00Z",
+  "featured": true,
+  "stats": { "downloads30d": 0, "successRate": null },
+  "dependencies": { "@prxy/module-sdk": "^1.0.0" },
+  "kind": "free"
+}

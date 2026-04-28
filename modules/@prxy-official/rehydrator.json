@@ -1,0 +1,25 @@
+{
+  "name": "@prxy-official/rehydrator",
+  "displayName": "Rehydrator",
+  "version": "1.0.0",
+  "description": "Pulls archived context back when the user references past turns. Companion to ipc — when the user says 'remember when…', searches eviction archives semantically and re-injects the most relevant turns.",
+  "author": {
+    "name": "ekkOS Technologies Inc.",
+    "github": "Ekkos-Technologies-Inc",
+    "email": "hello@ekkos.dev"
+  },
+  "license": "MIT",
+  "category": "context",
+  "tags": ["context", "memory", "archive", "embeddings"],
+  "supports": { "cloud": true, "local": true },
+  "configSchema": "https://github.com/Ekkos-Technologies-Inc/prxy-monster/blob/main/packages/modules-core/src/rehydrator.ts",
+  "documentation": "https://docs.prxy.monster/modules/rehydrator",
+  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster",
+  "npm": null,
+  "submittedAt": "2026-04-27T00:00:00Z",
+  "verified": true,
+  "verifiedAt": "2026-04-27T00:00:00Z",
+  "stats": { "downloads30d": 0, "successRate": null },
+  "dependencies": { "@prxy/module-sdk": "^1.0.0" },
+  "kind": "free"
+}

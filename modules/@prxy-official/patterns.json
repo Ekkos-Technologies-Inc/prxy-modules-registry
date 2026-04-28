@@ -1,0 +1,26 @@
+{
+  "name": "@prxy-official/patterns",
+  "displayName": "Patterns — Golden Loop",
+  "version": "1.0.0",
+  "description": "Injects relevant past patterns into the system prompt and forges new ones from successful resolutions. The Golden Loop — your gateway gets smarter over time.",
+  "author": {
+    "name": "ekkOS Technologies Inc.",
+    "github": "Ekkos-Technologies-Inc",
+    "email": "hello@ekkos.dev"
+  },
+  "license": "MIT",
+  "category": "injection",
+  "tags": ["memory", "patterns", "learning", "injection", "embeddings"],
+  "supports": { "cloud": true, "local": true },
+  "configSchema": "https://github.com/Ekkos-Technologies-Inc/prxy-monster/blob/main/packages/modules-core/src/patterns.ts",
+  "documentation": "https://docs.prxy.monster/modules/patterns",
+  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster",
+  "npm": null,
+  "submittedAt": "2026-04-27T00:00:00Z",
+  "verified": true,
+  "verifiedAt": "2026-04-27T00:00:00Z",
+  "featured": true,
+  "stats": { "downloads30d": 0, "successRate": null },
+  "dependencies": { "@prxy/module-sdk": "^1.0.0" },
+  "kind": "free"
+}

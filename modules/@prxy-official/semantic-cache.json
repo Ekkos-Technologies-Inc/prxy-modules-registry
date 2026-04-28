@@ -1,0 +1,26 @@
+{
+  "name": "@prxy-official/semantic-cache",
+  "displayName": "Semantic Cache",
+  "version": "1.0.0",
+  "description": "Returns cached responses for semantically similar (not just identical) requests. Embeds the request, vector-searches past requests, replays the cached response if similarity is above threshold.",
+  "author": {
+    "name": "ekkOS Technologies Inc.",
+    "github": "Ekkos-Technologies-Inc",
+    "email": "hello@ekkos.dev"
+  },
+  "license": "MIT",
+  "category": "cache",
+  "tags": ["cache", "embeddings", "vector-search", "latency"],
+  "supports": { "cloud": true, "local": true },
+  "configSchema": "https://github.com/Ekkos-Technologies-Inc/prxy-monster/blob/main/packages/modules-core/src/semantic-cache.ts",
+  "documentation": "https://docs.prxy.monster/modules/semantic-cache",
+  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster",
+  "npm": null,
+  "submittedAt": "2026-04-27T00:00:00Z",
+  "verified": true,
+  "verifiedAt": "2026-04-27T00:00:00Z",
+  "featured": true,
+  "stats": { "downloads30d": 0, "successRate": null },
+  "dependencies": { "@prxy/module-sdk": "^1.0.0" },
+  "kind": "free"
+}

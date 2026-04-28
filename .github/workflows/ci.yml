@@ -1,0 +1,31 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Validate manifests (schema + semantic)
+        run: npm run validate
+      - name: Verify npm packages exist
+        # Skip on push to main — only validate on PRs to keep main CI fast
+        # (npm fetches are external and rate-limited).
+        if: ${{ github.event_name == 'pull_request' }}
+        run: npx tsx scripts/verify-npm-package.ts --all
+        env:
+          # If a community submission references a not-yet-published package
+          # we let the maintainer eyeball it. Don't fail the whole CI run.
+          CI: 'true'
