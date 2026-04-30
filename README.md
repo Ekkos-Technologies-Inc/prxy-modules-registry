@@ -1,4 +1,4 @@
-# prxy-modules-registry
+# prxy-monster-modules-registry
 
 Curated registry of community modules for [prxy.monster](https://prxy.monster).
 
@@ -17,7 +17,7 @@ This repo is the **source of truth** for what's listed at
 ## What's here
 
 ```
-prxy-modules-registry/
+prxy-monster-modules-registry/
 ├── modules/
 │   ├── @prxy-official/    ← the 12 modules shipped with prxy.monster
 │   └── @community/        ← submit yours here

@@ -1,6 +1,6 @@
 # Publishing a community module
 
-Step-by-step guide to listing your module in the prxy-modules-registry.
+Step-by-step guide to listing your module in the prxy-monster-modules-registry.
 
 > **Prerequisite reading:** [`@prxy/module-sdk` README](https://www.npmjs.com/package/@prxy/module-sdk) and [docs.prxy.monster/sdk/interface](https://docs.prxy.monster/sdk/interface).
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Ekkos-Technologies-Inc/prxy-modules-registry/schema/module-manifest.schema.json",
+  "$id": "https://github.com/Ekkos-Technologies-Inc/prxy-monster-modules-registry/schema/module-manifest.schema.json",
   "title": "Prxy Module Manifest",
-  "description": "Schema for entries in the prxy-modules-registry. Every JSON file under modules/ MUST validate against this schema.",
+  "description": "Schema for entries in the prxy-monster-modules-registry. Every JSON file under modules/ MUST validate against this schema.",
   "type": "object",
   "required": [
     "name",
