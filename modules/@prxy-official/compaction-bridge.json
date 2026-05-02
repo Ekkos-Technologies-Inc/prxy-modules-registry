@@ -10,17 +10,30 @@
   },
   "license": "MIT",
   "category": "context",
-  "tags": ["context", "claude-code", "compaction", "state-preservation"],
-  "supports": { "cloud": true, "local": true },
-  "configSchema": "https://github.com/Ekkos-Technologies-Inc/prxy-monster/blob/main/packages/modules-core/src/compaction-bridge.ts",
+  "tags": [
+    "context",
+    "claude-code",
+    "compaction",
+    "state-preservation"
+  ],
+  "supports": {
+    "cloud": true,
+    "local": true
+  },
+  "configSchema": "https://docs.prxy.monster/modules/compaction-bridge#configuration",
   "documentation": "https://docs.prxy.monster/modules/compaction-bridge",
-  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster",
+  "repository": "https://github.com/Ekkos-Technologies-Inc/prxy-monster-local",
   "npm": null,
   "submittedAt": "2026-04-27T00:00:00Z",
   "verified": true,
   "verifiedAt": "2026-04-27T00:00:00Z",
   "featured": true,
-  "stats": { "downloads30d": 0, "successRate": null },
-  "dependencies": { "@prxy/module-sdk": "^1.0.0" },
+  "stats": {
+    "downloads30d": 0,
+    "successRate": null
+  },
+  "dependencies": {
+    "@prxy/module-sdk": "^1.0.0"
+  },
   "kind": "free"
 }
